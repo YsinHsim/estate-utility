@@ -1,6 +1,7 @@
 "use client";
 
 import React from 'react';
+import Head from 'next/head';
 import { motion } from 'framer-motion';
 import { Typography, Box, AppBar, Toolbar, Stack, Tooltip, Button } from '@mui/material';
 
@@ -17,6 +18,9 @@ export default function Home() {
     //===============================================================   section:view
     return (
         <>
+            <Head>
+              <title>Estate Utility</title>
+            </Head>
             <Box sx={{
                 height: '100vh',
                 display: 'flex',
