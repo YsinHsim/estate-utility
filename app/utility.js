@@ -20,6 +20,9 @@ export default function Utility() {
     const handleButtonTranslateDocument = () => {
         window.open('https://translate.google.com.my/');
     };
+    const handleButtonChangeBandCode = () => {
+        window.open('/pdf/Code_Tukar_Band.pdf', '_blank');
+    };
 
 
 
@@ -86,6 +89,19 @@ export default function Utility() {
                     onClick={handleButtonTranslateDocument}
                 >
                     Terjemahan Dokumen
+                </Button>
+                <Button
+                    variant="contained"
+                    size="small"
+                    sx={{
+                        bgcolor: 'gray',
+                        '$:hover':{
+                            bgcolor: 'black',
+                        }
+                    }}
+                    onClick={handleButtonChangeBandCode}
+                >
+                    Code Tukar Band
                 </Button>
             </Stack>
         </Box>

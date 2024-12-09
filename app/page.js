@@ -18,9 +18,6 @@ export default function Home() {
     //===============================================================   section:view
     return (
         <>
-            <Head>
-              <title>Estate Utility</title>
-            </Head>
             <Box sx={{
                 height: '100vh',
                 display: 'flex',
