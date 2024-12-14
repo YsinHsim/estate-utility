@@ -1,11 +1,11 @@
 "use client";
-
+import { motion } from 'framer-motion';
 import React from 'react';
 
 import { Stack, Typography, Box, Button } from '@mui/material';
 
 
-export default function Utility() {
+export default function Utility({ isSmartphone }) {
 
     //===============================================================   section:function
     const handleButtonChangeBand = () => {
@@ -28,81 +28,116 @@ export default function Utility() {
 
 
     //===============================================================   section:view
-    return(
+    return (
         <Box sx={{
-            p:1.5,
+            p: 1.5,
             bgcolor: '#D6EAF8',
             borderRadius: 0.5,
         }}>
             <Typography variant="body2" sx={{
-                pb:1.5
+                pb: 1.5
             }}>Panduan Pengaturan Internet</Typography>
             <Stack direction="column" spacing={1}>
-                <Button
-                    variant="contained"
-                    size="small"
-                    sx={{
-                        bgcolor: '#CB4335',
-                        '&:hover':{
-                            bgcolor: '#E74C3C'
-                        }
-                    }}
-                    onClick={handleButtonChangeBand}
+                <motion.div
+                    initial={isSmartphone ? { opacity: 0, x: '100%' } : {}}
+                    animate={isSmartphone ? { opacity: 1, x: 0 } : {}}
+                    transition={isSmartphone ? { duration: 1, delay: 0 } : {}}
                 >
-                    Panduan Tukar Band Internet
-                </Button>
-                <Button
-                    variant="contained"
-                    size="small"
-                    sx={{
-                        bgcolor: '#2471A3',
-                        '&:hover':{
-                            bgcolor: '#2980B9'
-                        }
-                    }}
-                    onClick={handleButtonBlockWebsite}
+                    <Button
+                        fullWidth
+                        variant="contained"
+                        size="small"
+                        sx={{
+                            bgcolor: '#CB4335',
+                            '&:hover': {
+                                bgcolor: '#E74C3C'
+                            }
+                        }}
+                        onClick={handleButtonChangeBand}
+                    >
+                        Panduan Tukar Band Internet
+                    </Button>
+                </motion.div>
+                <motion.div
+                    initial={isSmartphone ? { opacity: 0, x: '100%' } : {}}
+                    animate={isSmartphone ? { opacity: 1, x: 0 } : {}}
+                    transition={isSmartphone ? { duration: 1, delay: 0.2 } : {}}
                 >
-                    Panduan Block Website
-                </Button>
-                <Button 
-                    variant="contained"
-                    size="small"
-                    sx={{
-                        bgcolor: '#28B463',
-                        '&:hover':{
-                            bgcolor: '#2ECC71'
-                        }
-                    }}
-                    onClick={handleButtonCheckInternetSpeed}
+                    <Button
+                        fullWidth
+                        variant="contained"
+                        size="small"
+                        sx={{
+                            bgcolor: '#2471A3',
+                            '&:hover': {
+                                bgcolor: '#2980B9'
+                            }
+                        }}
+                        onClick={handleButtonBlockWebsite}
+                    >
+                        Panduan Block Website
+                    </Button>
+                </motion.div>
+                <motion.div
+                    initial={isSmartphone ? { opacity: 0, x: '100%' } : {}}
+                    animate={isSmartphone ? { opacity: 1, x: 0 } : {}}
+                    transition={isSmartphone ? { duration: 1, delay: 0.4 } : {}}
                 >
-                    Semak Kelajuan Internet
-                </Button>
-                <Button 
-                    variant="contained"
-                    size="small"
-                    sx={{
-                        bgcolor: '#D4AC0D',
-                        '&:hover':{
-                            bgcolor: '#F1C40F'
-                        }
-                    }}
-                    onClick={handleButtonTranslateDocument}
+                    <Button
+                        fullWidth
+                        variant="contained"
+                        size="small"
+                        sx={{
+                            bgcolor: '#28B463',
+                            '&:hover': {
+                                bgcolor: '#2ECC71'
+                            }
+                        }}
+                        onClick={handleButtonCheckInternetSpeed}
+                    >
+                        Semak Kelajuan Internet
+                    </Button>
+                </motion.div>
+                <motion.div
+                    initial={isSmartphone ? { opacity: 0, x: '100%' } : {}}
+                    animate={isSmartphone ? { opacity: 1, x: 0 } : {}}
+                    transition={isSmartphone ? { duration: 1, delay: 0.6 } : {}}
                 >
-                    Terjemahan Dokumen
-                </Button>
-                <Button
-                    variant="contained"
-                    size="small"
-                    sx={{
-                        bgcolor: 'gray',
-                        '$:hover':{
-                            bgcolor: 'black',
-                        }
-                    }}
-                    onClick={handleButtonChangeBandCode}
+                    <Button
+                        fullWidth
+                        variant="contained"
+                        size="small"
+                        sx={{
+                            bgcolor: '#D4AC0D',
+                            '&:hover': {
+                                bgcolor: '#F1C40F'
+                            }
+                        }}
+                        onClick={handleButtonTranslateDocument}
+                    >
+                        Terjemahan Dokumen
+                    </Button>
+                </motion.div>
+                <motion.div
+                    initial={isSmartphone ? { opacity: 0, x: '100%' } : {}}
+                    animate={isSmartphone ? { opacity: 1, x: 0 } : {}}
+                    transition={isSmartphone ? { duration: 1, delay: 0.8 } : {}}
                 >
-                    Code Tukar Band
-                </Button>
+                    <Button
+                        fullWidth
+                        variant="contained"
+                        size="small"
+                        sx={{
+                            bgcolor: 'gray',
+                            '$:hover': {
+                                bgcolor: 'black',
+                            }
+                        }}
+                        onClick={handleButtonChangeBandCode}
+                    >
+                        Code Tukar Band
+                    </Button>
+                </motion.div>
             </Stack>
         </Box>
     )

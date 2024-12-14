@@ -9,7 +9,7 @@ import InfoIcon from '@mui/icons-material/Info';
 import CloseIcon from '@mui/icons-material/Close';
 
 
-export default function MoreInfo() {
+export default function MoreInfo({ isSmartphone }) {
 
     //===============================================================   section:variable
     const [openDialog, setOpenDialog] = useState(false);
@@ -81,87 +81,104 @@ export default function MoreInfo() {
                 </DialogTitle>
                 <DialogContent>
                     <Box sx={{
-                        height: '84vh',
-                        bgcolor: '#D0ECE7',
+                        height: isSmartphone ? '100%' : '84vh',
+                        bgcolor: isSmartphone ? 'white' : '#D0ECE7',
                         borderRadius: 0.5,
-                        pl: 1
+                        pl: isSmartphone ? 0 : 1,
+                        display: 'flex',
+                        alignItems: isSmartphone ? 'noset' : 'center',
                     }}>
-                        <Stack direction="row" spacing={4} sx={{
-                            pt: 6, px: 4
+                        <Stack direction={isSmartphone ? "column" : "row"} spacing={isSmartphone ? 1 : 4} sx={{
+                            px: isSmartphone ? 2 : 4
                         }}>
-                            <Box>
-                                <motion.div
-                                    initial={{ opacity: 0, y: '-100%' }}
-                                    animate={{ opacity: 1, y: 0 }}
-                                    transition={{ duration: 2 }}
-                                >
-                                    <Typography variant="body1" sx={{
-                                        pt: 3, fontWeight: 'bold', color: '#34495E'
-                                    }} noWrap>Platform dan Teknologi yang Digunakan</Typography>
-
-                                </motion.div>
+                            <Box sx={{
+                                bgcolor: isSmartphone ? '#E0F2F1' : null,
+                                border: isSmartphone ? '#00695C solid 4px' : null,
+                                borderRadius: isSmartphone ? 2 : null,
+                            }}>
                                 <Box sx={{
-                                    pt: 5, px: 6
                                 }}>
                                     <motion.div
-                                        initial={{ opacity: 0, y: '100%' }}
-                                        animate={{ opacity: 1, y: 0 }}
-                                        transition={{ duration: 3 }}
+                                        initial={isSmartphone ? { opacity: 0, x: '-100%' } : { opacity: 0, x: '-100%' }}
+                                        animate={{ opacity: 1, x: 0 }}
+                                        transition={{ duration: 1, delay: 0 }}
                                     >
-                                        <Stack direction="row" spacing={1.5}>
-                                            <IconButton disabled>
-                                                <img
-                                                    src="/image/reactjs.png"
-                                                    alt="Reactjs Logo"
-                                                    style={{ width: 60, height: 60 }}
-                                                />
-                                            </IconButton>
-                                            <IconButton disabled>
-                                                <img
-                                                    src="/image/javascript.png"
-                                                    alt="Javascript Logo"
-                                                    style={{ width: 60, height: 60 }}
-                                                />
-                                            </IconButton>
-                                        </Stack>
+                                        {isSmartphone ? (
+                                            <Typography variant="body1" sx={{
+                                                pt: 3, fontWeight: 'bold', color: '#34495E', textAlign: 'center',
+                                            }}>Platform dan Teknologi yang Digunakan</Typography>
+                                        ):(
+                                            <Typography variant="body1" sx={{
+                                                pt: 3, fontWeight: 'bold', color: '#34495E'
+                                            }} noWrap>Platform dan Teknologi yang Digunakan</Typography>
+                                        )}
                                     </motion.div>
-                                    <motion.div
-                                        initial={{ opacity: 0, y: '100%' }}
-                                        animate={{ opacity: 1, y: 0 }}
-                                        transition={{ duration: 3, delay: 0.5 }}
-                                    >
-                                        <Stack direction="row" spacing={1.5} sx={{ pt: 2 }}>
-                                            <IconButton disabled>
-                                                <img
-                                                    src="/image/nextjs.png"
-                                                    alt="Nextjs Logo"
-                                                    style={{ width: 60, height: 60 }}
-                                                />
-                                            </IconButton>
-                                            <IconButton disabled>
-                                                <img
-                                                    src="/image/framer-motion.webp"
-                                                    alt="FramerMotion Logo"
-                                                    style={{ width: 60, height: 60 }}
-                                                />
-                                            </IconButton>
-                                        </Stack>
-                                    </motion.div>
+                                    <Box sx={{
+                                        pt:isSmartphone ? 2 : 5, pb:isSmartphone ? 2 : 0, px: 6
+                                    }}>
+                                        <motion.div
+                                            initial={isSmartphone ? { opacity: 0, x: '-100%' } : { opacity: 0, y: '-100%' }}
+                                            animate={isSmartphone ? { opacity: 1, x: 0 } : { opacity: 1, y: 0 }}
+                                            transition={{ duration: 2 }}
+                                        >
+                                            <Stack direction="row" spacing={1.5}>
+                                                <IconButton disabled>
+                                                    <img
+                                                        src="/image/reactjs.png"
+                                                        alt="Reactjs Logo"
+                                                        style={{ width: 60, height: 60 }}
+                                                    />
+                                                </IconButton>
+                                                <IconButton disabled>
+                                                    <img
+                                                        src="/image/javascript.png"
+                                                        alt="Javascript Logo"
+                                                        style={{ width: 60, height: 60 }}
+                                                    />
+                                                </IconButton>
+                                            </Stack>
+                                        </motion.div>
+                                        <motion.div
+                                            initial={isSmartphone ? { opacity: 0, x: '-100%' } : { opacity: 0, y: '100%' }}
+                                            animate={isSmartphone ? { opacity: 1, x: 0 } : { opacity: 1, y: 0 }}
+                                            transition={{ duration: 2, delay: 0.2 }}
+                                        >
+                                            <Stack direction="row" spacing={1.5} sx={{ pt: 2 }}>
+                                                <IconButton disabled>
+                                                    <img
+                                                        src="/image/nextjs.png"
+                                                        alt="Nextjs Logo"
+                                                        style={{ width: 60, height: 60 }}
+                                                    />
+                                                </IconButton>
+                                                <IconButton disabled>
+                                                    <img
+                                                        src="/image/framer-motion.webp"
+                                                        alt="FramerMotion Logo"
+                                                        style={{ width: 60, height: 60 }}
+                                                    />
+                                                </IconButton>
+                                            </Stack>
+                                        </motion.div>
+                                    </Box>
                                 </Box>
                             </Box>
-                            <Box>
+                            <Box sx={{
+                                bgcolor: isSmartphone ? '#E0F2F1' : null,
+                                border: isSmartphone ? '#00695C solid 4px' : null,
+                                borderRadius: isSmartphone ? 2 : null,
+                            }}>
                                 <motion.div
                                     initial={{ opacity: 0, y: '-100%' }}
                                     animate={{ opacity: 1, y: 0 }}
                                     transition={{ duration: 2 }}
                                 >
                                     <Typography variant="body1" sx={{
-                                        pt: 3, fontWeight: 'bold', color: '#34495E'
+                                        pt:3, fontWeight: 'bold', color: '#34495E', textAlign: isSmartphone ? 'center' : null,
                                     }}>Kenapa Laman Web Ini Dicipta</Typography>
-
                                 </motion.div>
                                 <Box sx={{
-                                    pt: 5
+                                    pt:isSmartphone ? 2 : 5, pb: isSmartphone ? 2 : 0, px: isSmartphone ? 3 : 0,
                                 }}>
                                     <motion.div
                                         initial={{ opacity: 0, y: '100%' }}
@@ -219,19 +236,23 @@ export default function MoreInfo() {
                             </Box>
 
 
-                            <Box>
+                            <Box sx={{
+                                bgcolor: isSmartphone ? '#E0F2F1' : null,
+                                border: isSmartphone ? '#00695C solid 4px' : null,
+                                borderRadius: isSmartphone ? 2 : null,
+                            }}>
                                 <motion.div
                                     initial={{ opacity: 0, y: '-100%' }}
                                     animate={{ opacity: 1, y: 0 }}
                                     transition={{ duration: 2 }}
                                 >
                                     <Typography variant="body1" sx={{
-                                        pt: 3, fontWeight: 'bold', color: '#34495E'
+                                        pt: 3, fontWeight: 'bold', color: '#34495E', textAlign: isSmartphone ? 'center' : null,
                                     }} noWrap>Pembangun Laman Web Ini</Typography>
 
                                 </motion.div>
                                 <Box sx={{
-                                    pt: 5
+                                    pt: isSmartphone ? 2 : 5, pb: isSmartphone ? 2 : 0,
                                 }}>
                                     <motion.div
                                         initial={{ opacity: 0, x: '100%' }}
@@ -240,7 +261,8 @@ export default function MoreInfo() {
                                     >
                                         <Box sx={{
                                             display: 'flex',
-                                            justifyContent: 'center'
+                                            justifyContent: 'center',
+
                                         }}>
                                             <IconButton disabled>
                                                 <img
@@ -260,7 +282,7 @@ export default function MoreInfo() {
                                             pt: 1.5
                                         }}>
                                             <Typography variant="body2" sx={{
-                                                fontWeight: 'bold'
+                                                fontWeight: 'bold', textAlign: isSmartphone ? 'center' : null,
                                             }} noWrap>
                                                 Muhammad Yasin Abdul Hassim
                                             </Typography>
