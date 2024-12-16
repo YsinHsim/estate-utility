@@ -3,7 +3,7 @@
 import React, { useState, useEffect } from 'react';
 import Head from 'next/head';
 import { motion } from 'framer-motion';
-import { Typography, Box, AppBar, Toolbar, Stack, Tooltip } from '@mui/material';
+import { Typography, Box, AppBar, Toolbar, Stack, Tooltip, useMediaQuery } from '@mui/material';
 
 import ChangeDocumentFormat from './changeDocumentFormat';
 import Utility from './utility';
@@ -28,13 +28,14 @@ export default function Home() {
     }, []);
 
     //===============================================================   section:function
+    
     const checkIfSmartphone = () => {
-        if (window.innerWidth <= 844) {
+        if (window.innerWidth <= 992) {
             setIsSmartphone(true);
         } else {
             setIsSmartphone(false);
         }
-    }
+    };
 
     if (isLoading) {
         // Display loading screen

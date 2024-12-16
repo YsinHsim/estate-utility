@@ -87,9 +87,10 @@ export default function MoreInfo({ isSmartphone }) {
                         pl: isSmartphone ? 0 : 1,
                         display: 'flex',
                         alignItems: isSmartphone ? 'noset' : 'center',
+                        mb: isSmartphone ? 12 : null,
                     }}>
                         <Stack direction={isSmartphone ? "column" : "row"} spacing={isSmartphone ? 1 : 4} sx={{
-                            px: isSmartphone ? 2 : 4
+                            px: isSmartphone ? 2 : 4,
                         }}>
                             <Box sx={{
                                 bgcolor: isSmartphone ? '#E0F2F1' : null,
@@ -107,14 +108,14 @@ export default function MoreInfo({ isSmartphone }) {
                                             <Typography variant="body1" sx={{
                                                 pt: 3, fontWeight: 'bold', color: '#34495E', textAlign: 'center',
                                             }}>Platform dan Teknologi yang Digunakan</Typography>
-                                        ):(
+                                        ) : (
                                             <Typography variant="body1" sx={{
                                                 pt: 3, fontWeight: 'bold', color: '#34495E'
                                             }} noWrap>Platform dan Teknologi yang Digunakan</Typography>
                                         )}
                                     </motion.div>
                                     <Box sx={{
-                                        pt:isSmartphone ? 2 : 5, pb:isSmartphone ? 2 : 0, px: 6
+                                        pt: isSmartphone ? 2 : 5, pb: isSmartphone ? 2 : 0, px: 6
                                     }}>
                                         <motion.div
                                             initial={isSmartphone ? { opacity: 0, x: '-100%' } : { opacity: 0, y: '-100%' }}
@@ -169,21 +170,21 @@ export default function MoreInfo({ isSmartphone }) {
                                 borderRadius: isSmartphone ? 2 : null,
                             }}>
                                 <motion.div
-                                    initial={{ opacity: 0, y: '-100%' }}
-                                    animate={{ opacity: 1, y: 0 }}
-                                    transition={{ duration: 2 }}
+                                    initial={isSmartphone ? { opacity: 0, x: '100%' } : { opacity: 0, y: '100%' }}
+                                    animate={isSmartphone ? { opacity: 1, x: 0 } : { opacity: 1, y: 0 }}
+                                    transition={{ duration: 1, delay: 0 }}
                                 >
                                     <Typography variant="body1" sx={{
-                                        pt:3, fontWeight: 'bold', color: '#34495E', textAlign: isSmartphone ? 'center' : null,
+                                        pt: 3, fontWeight: 'bold', color: '#34495E', textAlign: isSmartphone ? 'center' : null,
                                     }}>Kenapa Laman Web Ini Dicipta</Typography>
                                 </motion.div>
                                 <Box sx={{
-                                    pt:isSmartphone ? 2 : 5, pb: isSmartphone ? 2 : 0, px: isSmartphone ? 3 : 0,
+                                    pt: isSmartphone ? 2 : 5, pb: isSmartphone ? 2 : 0, px: isSmartphone ? 3 : 0,
                                 }}>
                                     <motion.div
-                                        initial={{ opacity: 0, y: '100%' }}
-                                        animate={{ opacity: 1, y: 0 }}
-                                        transition={{ duration: 2 }}
+                                        initial={isSmartphone ? { opacity: 0, x: '100%' } : { opacity: 0, y: '100%' }}
+                                        animate={isSmartphone ? { opacity: 1, x: 0 } : { opacity: 1, y: 0 }}
+                                        transition={{ duration: 2, delay: 0 }}
                                     >
                                         <Box>
                                             <Typography variant="body2" sx={{
@@ -197,9 +198,9 @@ export default function MoreInfo({ isSmartphone }) {
                                         </Box>
                                     </motion.div>
                                     <motion.div
-                                        initial={{ opacity: 0, y: '100%' }}
-                                        animate={{ opacity: 1, y: 0 }}
-                                        transition={{ duration: 2, delay: 0.5 }}
+                                        initial={isSmartphone ? { opacity: 0, x: '100%' } : { opacity: 0, y: '100%' }}
+                                        animate={isSmartphone ? { opacity: 1, x: 0 } : { opacity: 1, y: 0 }}
+                                        transition={{ duration: 2, delay: 0.2 }}
                                     >
                                         <Box sx={{
                                             mt: 2
@@ -215,9 +216,9 @@ export default function MoreInfo({ isSmartphone }) {
                                         </Box>
                                     </motion.div>
                                     <motion.div
-                                        initial={{ opacity: 0, y: '100%' }}
-                                        animate={{ opacity: 1, y: 0 }}
-                                        transition={{ duration: 2, delay: 1 }}
+                                        initial={isSmartphone ? { opacity: 0, x: '100%' } : { opacity: 0, y: '100%' }}
+                                        animate={isSmartphone ? { opacity: 1, x: 0 } : { opacity: 1, y: 0 }}
+                                        transition={{ duration: 2, delay: 0.4 }}
                                     >
                                         <Box sx={{
                                             mt: 2
