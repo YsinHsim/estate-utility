@@ -26,9 +26,18 @@ export default function Home() {
             setIsLoading(false);  // Hide loading screen after a delay (e.g., 2 seconds)
         }, 500); // 2-second loading screen
     }, []);
+    // Register and active Service Worker for PWA
+    useEffect(() => {
+        if ('serviceWorker' in navigator) {
+            navigator.serviceWorker
+                .register('/sw.js')
+                .then((reg) => console.log('Service Worker registered'))
+                .catch((err) => console.error('Service Worker registration failed', err));
+        }
+    }, []);
 
     //===============================================================   section:function
-    
+
     const checkIfSmartphone = () => {
         if (window.innerWidth <= 992) {
             setIsSmartphone(true);
